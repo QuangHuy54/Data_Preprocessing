@@ -12,7 +12,7 @@ def remove_duplicate_samples(data: pd.DataFrame, output_path: str) -> pd.DataFra
     # Loop through the rows of the dataframe
     for index in range(0, data.shape[0]):
         # Convert the row to a tuple so it can be added to a set
-        row_tuple = tuple(data.loc[index])
+        row_tuple = tuple(data.iloc[index].fillna(0))
 
         # If we have not seen this row before, add it to the list of indices to keep and the set of seen rows
         if row_tuple not in seen_rows:
