@@ -40,7 +40,7 @@ def add_expression_attribute(data: pd.DataFrame, output_path: str, formula: str,
     new_data = data
     new_data[new_attribute_name] = new_col
     new_data.to_csv(output_path, index=False)
-
+    print("Saved to",output_path)
     return new_data
 
 

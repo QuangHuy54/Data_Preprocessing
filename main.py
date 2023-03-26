@@ -8,7 +8,7 @@ from remove_missing_row_below_threshold import remove_row_missing_with_threshold
 from remove_missing_col_below_threshold import remove_col_below_threshold
 from remove_duplicate_samples import remove_duplicate_samples
 from normalization import normalize_attribute
-
+from add_expression_attribute import add_expression_attribute
 def main():
     argParser = argparse.ArgumentParser()
     argParser.add_argument("-i", "--input", help="path of input file", required=True)
@@ -28,7 +28,6 @@ def main():
     normalize_parser.add_argument('-c','--column',nargs='+',required=True)
     calculate_parser=subParser.add_parser('calculate',help='Calculate an expression')
     calculate_parser.add_argument('-e','--expression',required=True)
-    calculate_parser.add_argument('-c','--column',nargs='+',required=True)
     calculate_parser.add_argument('-n','--name',required=True,help='Name of the new column.')
     args = argParser.parse_args()
     data = pd.read_csv(args.input)
@@ -55,6 +54,8 @@ def main():
             normalize_attribute(data,args.method,args.column,args.output)
         elif args.choice=='removedup':
             remove_duplicate_samples(data,args.output)
+        elif args.choice=='calculate':
+            add_expression_attribute(data,args.output,args.expression,args.name)
     except Exception as e:
         print(e)
 main()
