@@ -6,7 +6,7 @@ def list_columns_have_missing_values(data: pd.DataFrame) -> None:
     """
     Prints the names of the columns in the file's data that have missing values.
 
-    Parameters:
+    Args:
         data (pd.DataFrame): The DataFrame of file's data to analyze for missing values.
     Returns:
         None
