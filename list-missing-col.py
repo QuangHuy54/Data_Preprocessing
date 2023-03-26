@@ -12,11 +12,10 @@ def list_columns_have_missing_values(data: pd.DataFrame) -> None:
         None
     """
 
-    # Iterates over the columns of the dataframe
+    # Iterates over the columns of the data-frame
     # and takes the column name if the column has any missing values.
     result_cols = [col for col in data.columns if data[col].isnull().any()]
     print(result_cols)
-    return
 
 
 if __name__ == '__main__':
@@ -25,7 +24,7 @@ if __name__ == '__main__':
     argParser.add_argument("-i", "--input", help="path of file", required=True)
     args = vars(argParser.parse_args())
 
-    # Reading the csv file and storing it in a dataframe.
+    # Reading the csv file and storing it in a data-frame.
     data = pd.read_csv(args['input'])
 
     # Printing the names of the columns in the file's data that have missing values.
