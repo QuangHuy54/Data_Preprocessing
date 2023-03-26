@@ -41,7 +41,5 @@ if __name__ == '__main__':
     data = pd.read_csv(args['input'])
 
     # Removing duplicate rows from the data-frame and writing the unique data to a new file.
-    if args['output']:
-        remove_duplicate_samples(data, args['output'])
-    else:
-        remove_duplicate_samples(data, args['input'][:-4] + "_unique.csv")
+    remove_duplicate_samples(data, args['output'] or (
+        args['input'][:-4] + "_unique.csv"))
