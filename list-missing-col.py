@@ -1,22 +1,17 @@
 import pandas as pd
 import argparse
 
-
-def list_columns_have_missing_values(data: pd.DataFrame) -> None:
-    """
-    Prints the names of the columns in the file's data that have missing values.
-
-    Args:
-        data (pd.DataFrame): The DataFrame of file's data to analyze for missing values.
-    Returns:
-        None
-    """
-
-    # Iterates over the columns of the data-frame
-    # and takes the column name if the column has any missing values.
-    result_cols = [col for col in data.columns if data[col].isnull().any()]
-    print(result_cols)
-
+def list_columns_have_missing_values(data):
+    result_columns = []
+    for column in data.columns:
+        column_content = data[column]
+        is_null = pd.isna(column_content)
+        for null_check in is_null:
+            if null_check:
+                result_columns.append(column)
+                break
+    print("Danh sách các cột có giá trị bị thiếu: ",result_columns)
+    return
 
 if __name__ == '__main__':
     # Parsing the command line arguments
