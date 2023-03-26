@@ -24,7 +24,7 @@ def remove_duplicate_samples(data: pd.DataFrame, output_path: str) -> pd.DataFra
 
     # Write the unique data to a CSV file
     unique_data.to_csv(output_path, index=False)
-
+    print("Saved to",output_path)
     return unique_data
 
 
