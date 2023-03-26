@@ -10,6 +10,7 @@ def list_columns_have_missing_values(data):
             if null_check:
                 result_columns.append(column)
                 break
+    print("Có tổng cộng ",len(result_columns)," cột bị thiếu dữ liệu.")
     print("Danh sách các cột có giá trị bị thiếu: ",result_columns)
     return
 
