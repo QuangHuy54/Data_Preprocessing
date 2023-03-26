@@ -12,4 +12,5 @@ def remove_row_missing_with_threshold(data, threshold, output_path):
         if count <= threshold*m:
             new_data = pd.concat([new_data, data.loc[i].to_frame().T])
     new_data.to_csv(output_path, encoding='utf-8', index=False)
+    print("Saved to ",output_path)
     return

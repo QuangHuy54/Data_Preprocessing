@@ -62,4 +62,5 @@ def fill_missing_value(data, mode, columns, output_path):
                     if is_missing:
                         data.loc[i, column] = filling_value
     data.to_csv(output_path, encoding='utf-8', index=False)
+    print("Saved to ", output_path)
     return

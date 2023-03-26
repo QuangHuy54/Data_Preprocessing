@@ -53,4 +53,5 @@ def normalize_attribute(data, mode, columns, output_path):
                             x = data.loc[i, column]
                             data.loc[i, column] = (x - mean) / sd
     data.to_csv(output_path, encoding='utf-8', index=False)
+    print("Saved to ",output_path)
     return

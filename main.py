@@ -6,6 +6,7 @@ from impute import fill_missing_value
 from list_missing_col import list_columns_have_missing_values
 from remove_missing_row_below_threshold import remove_row_missing_with_threshold
 from remove_missing_col_below_threshold import remove_col_below_threshold
+from remove_duplicate_samples import remove_duplicate_samples
 from normalization import normalize_attribute
 
 def main():
@@ -52,6 +53,8 @@ def main():
                 remove_col_below_threshold(data,args.threshold,args.output)
         elif args.choice=='normalize':
             normalize_attribute(data,args.method,args.column,args.output)
+        elif args.choice=='removedup':
+            remove_duplicate_samples(data,args.output)
     except Exception as e:
         print(e)
 main()

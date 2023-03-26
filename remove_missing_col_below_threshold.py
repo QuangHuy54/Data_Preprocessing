@@ -38,7 +38,7 @@ def remove_col_below_threshold(data: pd.DataFrame, threshold: float, output_path
 
     new_df = pd.concat(new_data, axis=1)
     new_df.to_csv(output_path, index=False)
-
+    print("Saved to ",output_path)
     return new_df
 
 
