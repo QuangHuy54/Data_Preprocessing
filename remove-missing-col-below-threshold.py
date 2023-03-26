@@ -57,9 +57,10 @@ if __name__ == '__main__':
     # Reading the csv file and storing it in a data-frame.
     data = pd.read_csv(args['input'])
 
-    # Removing columns with missing values and writing the output to a CSV file.
+    # If the user doesn't enter an output file, the program will create an output file
+    # with the same name as the input file, but with "_filled" appended to the end.
     if args['output']:
         remove_col_below_threshold(data, args['threshold'], args['output'])
     else:
-        # If don't have output file, overwrite input file
-        remove_col_below_threshold(data, args['threshold'], args['input'])
+        remove_col_below_threshold(
+            data, args['threshold'], args['input'][:-4] + "_filled.csv")
